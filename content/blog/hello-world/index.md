@@ -1,22 +1,25 @@
 ---
-title: Hello World
-date: "2015-05-01T22:12:03.284Z"
-description: "Hello World"
+title: Things I learned from Gallery
+date: "2020-04-21T22:12:03.284Z"
+description: "Notes"
 ---
 
-This is my first post on my new fake blog! How exciting!
+## Repo: https://github.com/bendc/gallery
 
-I'm sure I'll write a lot more interesting things in the future.
+### CSS
 
-Oh, and here's a great quote from this Wikipedia on
-[salted duck eggs](https://en.wikipedia.org/wiki/Salted_duck_egg).
+- `object-fit`: https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit
+- `will-change`: https://developer.mozilla.org/en-US/docs/Web/CSS/will-change
+- `--columns`: set css variable, `var(--columns)` use css variable
+- `--size: calc((100vw - (var(--columns) + 1) * var(--gutter)) / var(--columns));`
+- `scroll-snap-type: x mandatory;`
+- `@media (prefers-color-scheme: dark) {}`: The prefers-color-scheme CSS media feature is used to detect if the user has requested the system use a light or dark color theme.
 
-> A salted duck egg is a Chinese preserved food product made by soaking duck
-> eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-> supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-> charcoal paste. The eggs may also be sold with the salted paste removed,
-> wrapped in plastic, and vacuum packed. From the salt curing process, the
-> salted duck eggs have a briny aroma, a gelatin-like egg white and a
-> firm-textured, round yolk that is bright orange-red in color.
+### HTML
 
-![Chinese Salty Egg](./salty_egg.jpg)
+- `type="module"`: Causes the code to be treated as a JavaScript module.
+- `<template>`: The HTML Content Template (template) element is a mechanism for holding HTML that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript.
+
+### JavaScript
+
+- Web Animations API: https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API
