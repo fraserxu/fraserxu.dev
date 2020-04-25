@@ -7,12 +7,10 @@ I want to load some of my open source projects data and show them on my new pers
 
 I searched Github plugin on Gatsby plugin site and found the most popular one [gatsby-source-github-api](https://www.gatsbyjs.org/packages/gatsby-source-github-api/).
 
-### Install the plugin 
+### Install the plugin
 
 ```sh
-
 $ npm i gatsby-source-github-api
-
 ```
 
 ### Add config to `gatsby-config.js`
@@ -104,4 +102,10 @@ return (
 )
 ```
 
-![screenshot]()
+### Result 
+
+And that's it! Here's the result:
+
+![screenshot](/img/screen-shot-2020-04-25-at-4.40.27-pm.png "screenshot")
+
+This is the full [pull request](https://github.com/fraserxu/fraserxu.dev/pull/2) I did on Github and result can be viewed on my new personal website [fraserxu.dev](https://fraserxu.dev).
