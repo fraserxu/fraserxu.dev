@@ -77,8 +77,34 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify-cms`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-source-github-api`,
+      options: {
+        // token: required by the GitHub API
+        token: process.env.GITHUB_TOKEN,
+        graphQLQuery: `
+          query ($author: String = "", $userFirst: Int = 0) {
+            user(login: $author) {
+              pinnedItems(first: $userFirst) {
+                edges {
+                  node {
+                    ... on Repository {
+                      id
+                      name
+                      url
+                      description
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `,
+        variables: {
+          author: 'fraserxu',
+          userFirst: 4,
+        },
+      },
+    },
   ],
 }
