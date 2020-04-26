@@ -12,17 +12,20 @@ const IndexPage = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title='About Me' />
+      <SEO title='Fraser Xu' />
       <h2>Find me on:</h2>
       <ul>
-        <li>
-          <a href='https://twitter.com/fraserxu'>Twitter</a>
-        </li>
         <li>
           <a href='https://github.com/fraserxu'>Github</a>
         </li>
         <li>
-          <a href='https://fraserxu.dev'>Blog</a>
+          <a href='https://twitter.com/fraserxu'>Twitter</a>
+        </li>
+        <li>
+          <a href='https://www.instagram.com/fraserxu/'>Instagram</a>
+        </li>
+        <li>
+          <a href='/blog'>Blog</a>
         </li>
       </ul>
 
