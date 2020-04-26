@@ -36,8 +36,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Curl request
+        shell: bash
         env:
-          NETLIFY_DEPLOY_HOOK: ${{ secrets.Netlify_Deploy_Hook }}
+          NETLIFY_DEPLOY_HOOK: ${{ secrets.NetlifyDeployHook }}
         run: curl -X POST -d {} "$NETLIFY_DEPLOY_HOOK"
 ```
 
+Note that we are reading the Netlify deploy hook url from `secrets` to avoid expose it to the public. The doc for how to manage secrets from Github [can be found here](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).
+
+One thing I noticed that is when adding a secret, the secret name can not have `_` in it otherwise it will not work.
