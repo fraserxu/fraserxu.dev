@@ -24,9 +24,6 @@ const IndexPage = ({ data, location }) => {
         <li>
           <a href='https://www.instagram.com/fraserxu/'>Instagram</a>
         </li>
-        <li>
-          <a href='/blog'>Blog</a>
-        </li>
       </ul>
 
       <h2>Open source work:</h2>
