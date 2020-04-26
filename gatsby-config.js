@@ -80,7 +80,6 @@ module.exports = {
     {
       resolve: `gatsby-source-github-api`,
       options: {
-        // token: required by the GitHub API
         token: process.env.GITHUB_TOKEN,
         graphQLQuery: `
           query ($author: String = "", $userFirst: Int = 0) {
