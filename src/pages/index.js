@@ -3,6 +3,11 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import GithubIcon from '../icons/github.svg'
+import TwitterIcon from '../icons/twitter.svg'
+import InstagramIcon from '../icons/instagram.svg'
+
+import Styles from './index.module.css'
 
 const IndexPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -16,13 +21,28 @@ const IndexPage = ({ data, location }) => {
       <h2>Find me on:</h2>
       <ul>
         <li>
-          <a href='https://github.com/fraserxu'>Github</a>
+          <a href='https://github.com/fraserxu'>
+            <span className={Styles.iconContainer}>
+              <GithubIcon className={Styles.icon} />
+            </span>
+            Github
+          </a>
         </li>
         <li>
-          <a href='https://twitter.com/fraserxu'>Twitter</a>
+          <a href='https://twitter.com/fraserxu'>
+            <span className={Styles.iconContainer}>
+              <TwitterIcon className={Styles.icon} />
+            </span>
+            Twitter
+          </a>
         </li>
         <li>
-          <a href='https://www.instagram.com/fraserxu/'>Instagram</a>
+          <a href='https://www.instagram.com/fraserxu/'>
+            <span className={Styles.iconContainer}>
+              <InstagramIcon className={Styles.icon} />
+            </span>
+            Instagram
+          </a>
         </li>
       </ul>
 
