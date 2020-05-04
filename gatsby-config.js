@@ -9,6 +9,8 @@ module.exports = {
     siteUrl: `https://fraserxu.dev/`,
     social: {
       twitter: `fraserxu`,
+      github: 'fraserxu',
+      instagram: 'fraserxu',
     },
   },
   plugins: [
@@ -70,12 +72,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
     `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-source-github-api`,
@@ -113,5 +109,6 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-postcss`,
   ],
 }

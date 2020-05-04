@@ -7,10 +7,17 @@ import GithubIcon from '../icons/github.svg'
 import TwitterIcon from '../icons/twitter.svg'
 import InstagramIcon from '../icons/instagram.svg'
 
-import Styles from './index.module.css'
+import './index.css'
+
+const IconMap = {
+  github: <GithubIcon className='inline w-3' />,
+  twitter: <TwitterIcon className='inline w-3' />,
+  instagram: <InstagramIcon className='inline w-3' />,
+}
 
 const IndexPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
+  const social = data.site.siteMetadata.social
   const pinedRepos = data.githubData.data.user.pinnedItems.edges.map(
     (edge) => edge.node
   )
@@ -18,45 +25,37 @@ const IndexPage = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title='Fraser Xu' />
-      <h2>Find me on:</h2>
-      <ul>
-        <li>
-          <a href='https://github.com/fraserxu'>
-            <span className={Styles.iconContainer}>
-              <GithubIcon className={Styles.icon} />
-            </span>
-            Github
-          </a>
-        </li>
-        <li>
-          <a href='https://twitter.com/fraserxu'>
-            <span className={Styles.iconContainer}>
-              <TwitterIcon className={Styles.icon} />
-            </span>
-            Twitter
-          </a>
-        </li>
-        <li>
-          <a href='https://www.instagram.com/fraserxu/'>
-            <span className={Styles.iconContainer}>
-              <InstagramIcon className={Styles.icon} />
-            </span>
-            Instagram
-          </a>
-        </li>
-      </ul>
+      <div className='mt-4 pt-4'>
+        <h2>Find me on:</h2>
+        <ul>
+          {Object.keys(social).map((key) => {
+            return (
+              <li className='inline pr-2' key={key}>
+                <a href={`https://${key}.com/${social[key]}`}>{IconMap[key]}</a>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
 
-      <h2>Open source work:</h2>
-      <ul>
-        {pinedRepos.map((repo) => {
-          return (
-            <li key={repo.name}>
-              <a href={repo.url}>{repo.name}</a>
-              <p>{repo.description}</p>
-            </li>
-          )
-        })}
-      </ul>
+      <div className='pt-4'>
+        <h2>Open source work:</h2>
+        <ul>
+          {pinedRepos.map((repo) => {
+            return (
+              <li key={repo.name} className='pb-4'>
+                <a
+                  className='text-teal-500 hover:text-teal-700'
+                  href={repo.url}
+                >
+                  {repo.name}
+                </a>
+                <p>{repo.description}</p>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
     </Layout>
   )
 }
@@ -68,6 +67,11 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        social {
+          twitter
+          github
+          instagram
+        }
       }
     }
     githubData {
