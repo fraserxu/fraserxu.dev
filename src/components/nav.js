@@ -1,17 +1,22 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import navStyles from './nav.module.css'
-
 const Nav = () => {
   return (
     <nav>
-      <ul className={navStyles.ul}>
-        <li className={navStyles.li}>
-          <Link to='/'>Home</Link>
+      <ul>
+        <li className='inline pr-4 mb-3'>
+          <Link className='text-lg text-teal-500 hover:text-teal-700' to='/'>
+            Home
+          </Link>
         </li>
-        <li className={navStyles.li}>
-          <Link to='/blog'>Blog</Link>
+        <li className='inline pr-4 mb-3'>
+          <Link
+            className='text-lg text-teal-500 hover:text-teal-700'
+            to='/blog'
+          >
+            Blog
+          </Link>
         </li>
       </ul>
     </nav>
