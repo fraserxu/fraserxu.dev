@@ -10,9 +10,9 @@ import InstagramIcon from '../icons/instagram.svg'
 import './index.css'
 
 const IconMap = {
-  github: <GithubIcon className='inline w-3' />,
-  twitter: <TwitterIcon className='inline w-3' />,
-  instagram: <InstagramIcon className='inline w-3' />,
+  github: <GithubIcon className='inline w-4' />,
+  twitter: <TwitterIcon className='inline w-4' />,
+  instagram: <InstagramIcon className='inline w-4' />,
 }
 
 const IndexPage = ({ data, location }) => {

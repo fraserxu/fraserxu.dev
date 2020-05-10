@@ -1,4 +1,6 @@
+/* purgecss start ignore */
 @tailwind base;
+/* purgecss end ignore */
 
 h1 {
   @apply font-semibold text-5xl leading-10;
