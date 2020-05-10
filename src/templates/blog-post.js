@@ -19,7 +19,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       <article>
         <header>
           <h1 className='text-3xl'>{post.frontmatter.title}</h1>
-          <p className='mb-8'>{post.frontmatter.date}</p>
+          <p className='mb-8 text-gray-800'>{post.frontmatter.date}</p>
         </header>
         <section
           className='markdown'

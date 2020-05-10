@@ -28,25 +28,27 @@ const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
 
   return (
-    <div className='mx-auto max-w-2xl py-8 px-4'>
-      <header>
-        {location.pathname === rootPath ? (
-          <RootPageHeader title={title} />
-        ) : (
-          <PageHeader title={title} />
-        )}
-      </header>
-      <main>{children}</main>
-      <footer className='py-10'>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a
-          className='text-teal-500 hover:text-teal-700'
-          href='https://www.gatsbyjs.org'
-        >
-          Gatsby
-        </a>
-      </footer>
+    <div className='min-h-screen bg-gray-100'>
+      <div className='mx-auto max-w-2xl py-8 px-4'>
+        <header>
+          {location.pathname === rootPath ? (
+            <RootPageHeader title={title} />
+          ) : (
+            <PageHeader title={title} />
+          )}
+        </header>
+        <main>{children}</main>
+        <footer className='py-10'>
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <a
+            className='text-teal-500 hover:text-teal-700'
+            href='https://www.gatsbyjs.org'
+          >
+            Gatsby
+          </a>
+        </footer>
+      </div>
     </div>
   )
 }

@@ -27,7 +27,7 @@ h3 {
     @apply text-black font-bold;
   }
   & a {
-    @apply text-black text-teal-500 font-semibold;
+    @apply text-black text-teal-500;
   }
   & strong a {
     @apply font-bold text-teal-500;
