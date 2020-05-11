@@ -6,6 +6,7 @@ import SEO from '../components/seo'
 import GithubIcon from '../icons/github.svg'
 import TwitterIcon from '../icons/twitter.svg'
 import InstagramIcon from '../icons/instagram.svg'
+import About from './about.mdx'
 
 import './index.css'
 
@@ -25,9 +26,13 @@ const IndexPage = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title='Fraser Xu' />
+      <div className='markdown mt-4'>
+        <About />
+      </div>
+      <p></p>
       <div className='mt-4 pt-4'>
         <h2>Find me on:</h2>
-        <ul>
+        <ul className='ml-2'>
           {Object.keys(social).map((key) => {
             return (
               <li className='inline pr-2' key={key}>
@@ -40,10 +45,10 @@ const IndexPage = ({ data, location }) => {
 
       <div className='pt-4'>
         <h2>Open source work:</h2>
-        <ul>
+        <ul className='ml-2'>
           {pinedRepos.map((repo) => {
             return (
-              <li key={repo.name} className='pb-4'>
+              <li key={repo.name} className='pb-4 list-disc'>
                 <a
                   className='text-teal-500 hover:text-teal-700'
                   href={repo.url}
