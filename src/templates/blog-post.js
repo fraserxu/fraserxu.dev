@@ -36,7 +36,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <li>
             {previous && (
               <Link
-                className='text-teal-500 hover:text-teal-700'
+                className='text-black underline hover:no-underline'
                 to={previous.fields.slug}
                 rel='prev'
               >
@@ -47,7 +47,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <li>
             {next && (
               <Link
-                className='text-teal-500 hover:text-teal-700'
+                className='text-black underline hover:no-underline'
                 to={next.fields.slug}
                 rel='next'
               >

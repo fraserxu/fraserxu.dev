@@ -5,7 +5,7 @@ import Nav from './nav'
 
 const RootPageHeader = ({ title }) => (
   <>
-    <h1 className='py-8'>
+    <h1 className='font-bold text-3xl py-4'>
       <Link className='text-gray-800 hover:text-gray-900' to={`/`}>
         {title}
       </Link>
@@ -15,8 +15,8 @@ const RootPageHeader = ({ title }) => (
 )
 
 const PageHeader = ({ title }) => (
-  <div className='flex items-center justify-between pb-4'>
-    <h3>
+  <div className='flex items-center justify-between'>
+    <h3 className='font-bold text-2xl py-4'>
       <Link className='text-gray-800 hover:text-gray-900' to={`/`}>
         {title}
       </Link>
@@ -28,7 +28,7 @@ const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
 
   return (
-    <div className='min-h-screen bg-gray-100'>
+    <div className='min-h-screen bg-gray-100 antialiased'>
       <div className='mx-auto max-w-2xl py-8 px-4'>
         <header>
           {location.pathname === rootPath ? (
@@ -42,7 +42,7 @@ const Layout = ({ location, title, children }) => {
           © {new Date().getFullYear()}, Built with
           {` `}
           <a
-            className='text-teal-500 hover:text-teal-700'
+            className='text-black underline hover:no-underline'
             href='https://www.gatsbyjs.org'
           >
             Gatsby

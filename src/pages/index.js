@@ -30,8 +30,8 @@ const IndexPage = ({ data, location }) => {
         <About />
       </div>
       <p></p>
-      <div className='mt-4 pt-4'>
-        <h2>Find me on:</h2>
+      <div className='mt-4 pt-8'>
+        <h2 className='text-xl font-extrabold text-black mb-4'>Find me on:</h2>
         <ul className='ml-2'>
           {Object.keys(social).map((key) => {
             return (
@@ -43,14 +43,16 @@ const IndexPage = ({ data, location }) => {
         </ul>
       </div>
 
-      <div className='pt-4'>
-        <h2>Open source work:</h2>
+      <div className='pt-8'>
+        <h2 className='text-xl font-extrabold text-black mb-4'>
+          Open source work:
+        </h2>
         <ul className='ml-2'>
           {pinedRepos.map((repo) => {
             return (
               <li key={repo.name} className='pb-4 list-disc'>
                 <a
-                  className='text-teal-500 hover:text-teal-700'
+                  className='text-black underline hover:no-underline'
                   href={repo.url}
                 >
                   {repo.name}

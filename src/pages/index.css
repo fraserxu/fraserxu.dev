@@ -1,23 +1,11 @@
 @tailwind base;
 
-h1 {
-  @apply font-semibold text-5xl leading-10;
-}
-
-h2 {
-  @apply text-2xl leading-8 py-2;
-}
-
-h3 {
-  @apply font-medium text-2xl leading-8;
-}
-
 @tailwind components;
 
 @tailwind utilities;
 
 .markdown {
-  @apply text-lg text-gray-900 leading-normal;
+  @apply text-lg text-gray-900 leading-normal antialiased;
   & > * + *,
   & li + li,
   & li > p + p {
@@ -27,10 +15,16 @@ h3 {
     @apply text-black font-bold;
   }
   & a {
-    @apply text-black text-teal-500;
+    @apply text-black underline;
+  }
+  & a:hover {
+    @apply no-underline;
   }
   & strong a {
-    @apply font-bold text-teal-500;
+    @apply text-black underline;
+  }
+  & strong a:hover {
+    @apply no-underline;
   }
   & h2 {
     @apply leading-tight text-xl text-black mb-2 mt-10;

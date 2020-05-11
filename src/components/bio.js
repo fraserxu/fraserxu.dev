@@ -40,11 +40,11 @@ const Bio = () => {
         />
       </div>
 
-      <p className='text-lg tracking-wide'>
+      <p className='text-lg'>
         Written by <strong>{author.name}</strong> {author.summary}
         {` `}
         <a
-          className='text-teal-500 hover:text-teal-700'
+          className='text-black underline hover:no-underline'
           href={`https://twitter.com/${social.twitter}`}
         >
           You should follow him on Twitter

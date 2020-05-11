@@ -6,12 +6,20 @@ const Nav = () => {
     <nav>
       <ul>
         <li className='inline pr-4 mb-3 uppercase'>
-          <Link className='text-gray-500 hover:text-gray-700' to='/'>
+          <Link
+            className='font-semibold no-underline text-xs text-gray-500 hover:text-gray-700'
+            activeClassName='text-gray-700'
+            to='/'
+          >
             Home
           </Link>
         </li>
         <li className='inline pr-4 mb-3 uppercase'>
-          <Link className='text-gray-500 hover:text-gray-700' to='/blog'>
+          <Link
+            className='font-semibold no-underline text-xs text-gray-500 hover:text-gray-700'
+            activeClassName='text-gray-700'
+            to='/blog'
+          >
             Blog
           </Link>
         </li>
