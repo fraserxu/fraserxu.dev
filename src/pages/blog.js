@@ -20,13 +20,13 @@ const BlogIndex = ({ data, location }) => {
             <header>
               <h3>
                 <Link
-                  className='tracking-wide text-black underline hover:no-underline shadow-none'
+                  className='text-xl tracking-wide text-black underline hover:no-underline shadow-none'
                   to={node.fields.slug}
                 >
                   {title}
                 </Link>
               </h3>
-              <small className='inline-block py-2'>
+              <small className='inline-block text-gray-700 uppercase py-2'>
                 {node.frontmatter.date}
               </small>
             </header>

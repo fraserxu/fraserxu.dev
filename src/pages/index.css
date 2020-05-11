@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 .markdown {
-  @apply text-lg text-gray-900 leading-normal antialiased;
+  @apply text-lg text-gray-900 antialiased;
   & > * + *,
   & li + li,
   & li > p + p {
@@ -27,13 +27,13 @@
     @apply no-underline;
   }
   & h2 {
-    @apply leading-tight text-xl text-black mb-2 mt-10;
+    @apply text-3xl  font-bold text-black mb-2 mt-10;
   }
   & h3 {
-    @apply leading-tight text-lg text-black mt-8 -mb-2;
+    @apply text-2xl  font-semibold text-black mt-8 -mb-2;
   }
   & h4 {
-    @apply leading-tight text-base text-black mt-8 -mb-2;
+    @apply text-lg font-semibold text-black mt-8 -mb-2;
   }
   & blockquote {
     @apply border-l-4 pl-4 italic;
