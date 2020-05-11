@@ -40,7 +40,7 @@ const Bio = () => {
         />
       </div>
 
-      <p className='text-lg'>
+      <p className='text-lg tracking-wide'>
         Written by <strong>{author.name}</strong> {author.summary}
         {` `}
         <a

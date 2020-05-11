@@ -1,11 +1,7 @@
 // tailwind.config.js
 module.exports = {
   purge: ['./src/**/*.js'],
-  theme: {
-    fontFamily: {
-      sans: ['Work Sans', 'sans-serif'],
-    },
-  },
+  theme: {},
   variants: {},
   plugins: [],
 }
