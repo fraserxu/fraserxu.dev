@@ -5,16 +5,13 @@ const Nav = () => {
   return (
     <nav>
       <ul>
-        <li className='inline pr-4 mb-3'>
-          <Link className='text-lg text-teal-500 hover:text-teal-700' to='/'>
+        <li className='inline pr-4 mb-3 uppercase'>
+          <Link className='text-gray-500 hover:text-gray-700' to='/'>
             Home
           </Link>
         </li>
-        <li className='inline pr-4 mb-3'>
-          <Link
-            className='text-lg text-teal-500 hover:text-teal-700'
-            to='/blog'
-          >
+        <li className='inline pr-4 mb-3 uppercase'>
+          <Link className='text-gray-500 hover:text-gray-700' to='/blog'>
             Blog
           </Link>
         </li>
