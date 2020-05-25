@@ -78,17 +78,45 @@ module.exports = {
       options: {
         token: process.env.GITHUB_TOKEN,
         graphQLQuery: `
-          query ($author: String = "", $userFirst: Int = 0) {
-            user(login: $author) {
+          query ($userFirst: Int = 0) {
+            viewer {
               pinnedItems(first: $userFirst) {
                 edges {
                   node {
                     ... on Repository {
-                      id
                       name
-                      url
                       description
+                      url
+                      homepageUrl
+                      pushedAt
+                      languages(first: 1) {
+                        nodes {
+                          name
+                          color
+                        }
+                      }
+                      stargazers {
+                        totalCount
+                      }
                     }
+                  }
+                }
+              }
+              repositories(isFork: false, orderBy: {field: PUSHED_AT, direction: ASC}, last: 5, affiliations: OWNER) {
+                nodes {
+                  name
+                  description
+                  url
+                  homepageUrl
+                  pushedAt
+                  languages(first: 1) {
+                    nodes {
+                      name
+                      color
+                    }
+                  }
+                  stargazers {
+                    totalCount
                   }
                 }
               }
@@ -96,7 +124,6 @@ module.exports = {
           }
         `,
         variables: {
-          author: 'fraserxu',
           userFirst: 4,
         },
       },
