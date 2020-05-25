@@ -7,6 +7,7 @@ import GithubIcon from '../icons/github.svg'
 import TwitterIcon from '../icons/twitter.svg'
 import InstagramIcon from '../icons/instagram.svg'
 import About from './about.mdx'
+import Repos from '../components/repos'
 
 import './index.css'
 
@@ -19,9 +20,10 @@ const IconMap = {
 const IndexPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const social = data.site.siteMetadata.social
-  const pinedRepos = data.githubData.data.user.pinnedItems.edges.map(
+  const pinedRepos = data.githubData.data.viewer.pinnedItems.edges.map(
     (edge) => edge.node
   )
+  const latestUpdatedRepos = data.githubData.data.viewer.repositories.nodes
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -45,23 +47,16 @@ const IndexPage = ({ data, location }) => {
 
       <div className='pt-8'>
         <h2 className='text-xl font-extrabold text-black mb-4'>
-          Open source work:
+          Open source works:
         </h2>
-        <ul className='ml-2'>
-          {pinedRepos.map((repo) => {
-            return (
-              <li key={repo.name} className='pb-4 list-disc'>
-                <a
-                  className='text-black underline hover:no-underline'
-                  href={repo.url}
-                >
-                  {repo.name}
-                </a>
-                <p>{repo.description}</p>
-              </li>
-            )
-          })}
-        </ul>
+        <Repos repos={pinedRepos} />
+      </div>
+
+      <div className='pt-8'>
+        <h2 className='text-xl font-extrabold text-black mb-4'>
+          Latest hacks:
+        </h2>
+        <Repos repos={latestUpdatedRepos} />
       </div>
     </Layout>
   )
@@ -83,13 +78,42 @@ export const pageQuery = graphql`
     }
     githubData {
       data {
-        user {
+        viewer {
           pinnedItems {
             edges {
               node {
                 name
+                pushedAt(fromNow: true)
                 url
+                homepageUrl
                 description
+                languages {
+                  nodes {
+                    name
+                    color
+                  }
+                }
+                stargazers {
+                  totalCount
+                }
+              }
+            }
+          }
+          repositories {
+            nodes {
+              name
+              pushedAt(fromNow: true)
+              url
+              homepageUrl
+              description
+              languages {
+                nodes {
+                  name
+                  color
+                }
+              }
+              stargazers {
+                totalCount
               }
             }
           }
