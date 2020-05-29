@@ -12,28 +12,28 @@
     @apply mt-6;
   }
   & strong {
-    @apply text-black font-bold;
+    @apply text-gray-900 font-bold;
   }
   & a {
-    @apply text-black underline;
+    @apply text-gray-900 border-b border-dotted border-gray-900;
   }
   & a:hover {
-    @apply no-underline;
+    @apply text-gray-700;
   }
   & strong a {
-    @apply text-black underline;
+    @apply text-gray-900 border-b border-dotted border-gray-900;
   }
   & strong a:hover {
-    @apply no-underline;
+    @apply text-gray-700;
   }
   & h2 {
-    @apply text-3xl  font-bold text-black mb-2 mt-10;
+    @apply text-3xl  font-bold text-gray-900 mb-2 mt-10;
   }
   & h3 {
-    @apply text-2xl  font-semibold text-black mt-8 -mb-2;
+    @apply text-2xl  font-semibold text-gray-900 mt-8 -mb-2;
   }
   & h4 {
-    @apply text-lg font-semibold text-black mt-8 -mb-2;
+    @apply text-lg font-semibold text-gray-900 mt-8 -mb-2;
   }
   & blockquote {
     @apply border-l-4 pl-4 italic;

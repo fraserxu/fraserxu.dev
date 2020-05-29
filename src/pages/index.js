@@ -33,7 +33,9 @@ const IndexPage = ({ data, location }) => {
       </div>
       <p></p>
       <div className='mt-4 pt-8'>
-        <h2 className='text-xl font-extrabold text-black mb-4'>Find me on:</h2>
+        <h2 className='text-xl font-semibold text-gray-900 mb-4'>
+          Find me on:
+        </h2>
         <ul className='ml-2'>
           {Object.keys(social).map((key) => {
             return (
@@ -46,14 +48,14 @@ const IndexPage = ({ data, location }) => {
       </div>
 
       <div className='pt-8'>
-        <h2 className='text-xl font-extrabold text-black mb-4'>
+        <h2 className='text-xl font-semibold text-gray-900 mb-4'>
           Open source works:
         </h2>
         <Repos repos={pinedRepos} />
       </div>
 
       <div className='pt-8'>
-        <h2 className='text-xl font-extrabold text-black mb-4'>
+        <h2 className='text-xl font-semibold text-gray-900 mb-4'>
           Latest hacks:
         </h2>
         <Repos repos={latestUpdatedRepos} />

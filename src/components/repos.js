@@ -9,7 +9,7 @@ const Repos = ({ repos }) => {
         return (
           <li key={repo.name} className='pb-4 list-disc'>
             <a
-              className='text-black underline hover:no-underline'
+              className='text-gray-900 border-b border-dotted border-gray-900 hover:text-gray-700'
               href={repo.url}
             >
               {repo.name}

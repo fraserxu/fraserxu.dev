@@ -20,7 +20,7 @@ const BlogIndex = ({ data, location }) => {
             <header>
               <h3>
                 <Link
-                  className='text-xl tracking-wide text-black underline hover:no-underline shadow-none'
+                  className='text-gray-900 border-b border-dotted border-gray-900 hover:text-gray-700'
                   to={node.fields.slug}
                 >
                   {title}

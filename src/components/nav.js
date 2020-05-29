@@ -7,7 +7,7 @@ const Nav = () => {
       <ul>
         <li className='inline pr-4 mb-3 uppercase'>
           <Link
-            className='font-semibold no-underline text-xs text-gray-500 hover:text-gray-700'
+            className='font-semibold text-xs text-gray-900 border-b border-dotted border-gray-900 hover:text-gray-700'
             activeClassName='text-gray-700'
             to='/'
           >
@@ -16,7 +16,7 @@ const Nav = () => {
         </li>
         <li className='inline pr-4 mb-3 uppercase'>
           <Link
-            className='font-semibold no-underline text-xs text-gray-500 hover:text-gray-700'
+            className='font-semibold text-xs text-gray-900 border-b border-dotted border-gray-900 hover:text-gray-700'
             activeClassName='text-gray-700'
             to='/blog'
           >

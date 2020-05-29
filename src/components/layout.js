@@ -6,7 +6,10 @@ import Nav from './nav'
 const RootPageHeader = ({ title }) => (
   <>
     <h1 className='font-bold text-3xl py-4'>
-      <Link className='text-gray-800 hover:text-gray-900' to={`/`}>
+      <Link
+        className='text-gray-900 border-b border-dotted border-gray-900 hover:text-gray-700'
+        to={`/`}
+      >
         {title}
       </Link>
     </h1>
@@ -17,7 +20,10 @@ const RootPageHeader = ({ title }) => (
 const PageHeader = ({ title }) => (
   <div className='flex items-center justify-between'>
     <h3 className='font-bold text-2xl py-4'>
-      <Link className='text-gray-800 hover:text-gray-900' to={`/`}>
+      <Link
+        className='text-gray-900 border-b border-dotted border-gray-900 hover:text-gray-700'
+        to={`/`}
+      >
         {title}
       </Link>
     </h3>
@@ -42,7 +48,7 @@ const Layout = ({ location, title, children }) => {
           © {new Date().getFullYear()}, Built with
           {` `}
           <a
-            className='text-black underline hover:no-underline'
+            className='text-gray-900 border-b border-dotted border-gray-900 hover:text-gray-700'
             href='https://www.gatsbyjs.org'
           >
             Gatsby
