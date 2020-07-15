@@ -24,7 +24,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </p>
         </header>
         <section
-          className='markdown'
+          className='prose'
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
         <hr className='my-8' />
