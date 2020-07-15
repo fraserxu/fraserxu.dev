@@ -19,9 +19,9 @@ const Repos = ({ repos }) => {
               <span className='pr-4 text-sm text-gray-700'>
                 <span
                   className='w-3 h-3 inline-block relative rounded-full mr-1'
-                  style={{ backgroundColor: repo.languages.nodes[0].color }}
+                  style={{ backgroundColor: repo?.languages?.nodes[0]?.color }}
                 ></span>
-                {repo.languages.nodes[0].name}
+                {repo?.languages?.nodes[0]?.name}
               </span>
               <span className='inline-flex items-center pr-4 text-sm text-gray-700'>
                 <span className='inline-flex items-center pr-1'>

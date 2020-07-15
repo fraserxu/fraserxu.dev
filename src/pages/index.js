@@ -28,7 +28,7 @@ const IndexPage = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title='Fraser Xu' />
-      <div className='markdown mt-4'>
+      <div className='prose mt-4'>
         <About />
       </div>
       <p></p>
