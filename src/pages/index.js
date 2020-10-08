@@ -22,8 +22,8 @@ const IndexPage = ({ data, location }) => {
   const social = data.site.siteMetadata.social
   const pinedRepos = data.githubData.data.viewer.pinnedItems.edges.map(
     (edge) => edge.node
-  )
-  const latestUpdatedRepos = data.githubData.data.viewer.repositories.nodes
+  ).reverse()
+  const latestUpdatedRepos = data.githubData.data.viewer.repositories.nodes.reverse()
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -49,7 +49,7 @@ const IndexPage = ({ data, location }) => {
 
       <div className='pt-8'>
         <h2 className='text-xl font-semibold text-gray-900 mb-4'>
-          Open source works:
+          Open source works hot?:
         </h2>
         <Repos repos={pinedRepos} />
       </div>
