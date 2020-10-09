@@ -22,7 +22,7 @@ const IndexPage = ({ data, location }) => {
   const social = data.site.siteMetadata.social
   const pinedRepos = data.githubData.data.viewer.pinnedItems.edges.map(
     (edge) => edge.node
-  ).reverse()
+  )
   const latestUpdatedRepos = data.githubData.data.viewer.repositories.nodes.reverse()
 
   return (
