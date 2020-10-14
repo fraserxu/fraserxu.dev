@@ -39,7 +39,7 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
-    "prettier": "2.0.4",
+    "prettier": "2.1.2",
     "tailwindcss": "^1.4.4"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
