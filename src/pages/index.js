@@ -49,7 +49,7 @@ const IndexPage = ({ data, location }) => {
 
       <div className='pt-8'>
         <h2 className='text-xl font-semibold text-gray-900 mb-4'>
-          Open source works hot?:
+          Open source works:
         </h2>
         <Repos repos={pinedRepos} />
       </div>
