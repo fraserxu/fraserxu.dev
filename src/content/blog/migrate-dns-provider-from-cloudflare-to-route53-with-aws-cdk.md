@@ -32,7 +32,7 @@ cdk init app --language typescript
 
 The `init` command created an empty stack in `lib/infrastucture-stack.ts`
 
-```TypeScript
+```typescript
 export class InfrastructureStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props)
@@ -51,7 +51,7 @@ I'm already using Route 53 to manage my domain, so I can just import it from exi
 
 If I don't know the ID of the Hosted Zone, I can use the `HostedZone.fromLookup`:
 
-```TypeScript
+```typescript
 const zone = route53.HostedZone.fromLookup(this, "Zone", {
   domainName: "fraserxu.dev",
 })
@@ -59,7 +59,7 @@ const zone = route53.HostedZone.fromLookup(this, "Zone", {
 
 Alternatively, I can use the `fromHostedZoneId` if I know the `hostedZoneId`
 
-```TypeScript
+```typescript
 const zone = HostedZone.fromHostedZoneId(this, 'Zone', {
   hostedZoneId: 'my-hosted-zone-id',
 });
@@ -67,7 +67,7 @@ const zone = HostedZone.fromHostedZoneId(this, 'Zone', {
 
 Once it's imported, then we can add a new `CNAME` record using the `route53.CnameRecord` API
 
-```TypeScript
+```typescript
 new route53.CnameRecord(this, "Hotdog", {
   zone,
   recordName: "hotdog",
@@ -77,7 +77,7 @@ new route53.CnameRecord(this, "Hotdog", {
 
 That's it! Here's the full example:
 
-```TypeScript
+```typescript
 import * as cdk from "@aws-cdk/core"
 import * as route53 from "@aws-cdk/aws-route53"
 

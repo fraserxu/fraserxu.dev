@@ -21,7 +21,7 @@ Most of the unit tests nowdays are running with Nodejs, so in order to emulate a
 
 Here's a handy snippet that you could use before your testing code to prepare a DOM environment:
 
-```JavaScript
+```javascript
 import jsdom from 'jsdom'
 
 // This part inject document and window variable for the DOM mount test
@@ -39,7 +39,7 @@ export const prepareDOMEnv = (html = '<!doctype html><html><body></body></html>'
 
 And in your test code, you could just import it and use it by calling the fucntion.
 
-```JavaScript
+```javascript
 import { prepareDOMEnv } from 'jsdomHelper'
 
 prepareDOMEnv()
@@ -47,7 +47,7 @@ prepareDOMEnv()
 
 If your code depends on some DOM helper function like jQuery, you may also need to include the source code of jQuery into the prepared environment, you could do:
 
-```JavaScript
+```javascript
 import fs from 'fs'
 import jsdom from 'jsdom'
 import resolve from 'resolve'
@@ -160,7 +160,7 @@ There is also an example docker machine [here](https://github.com/fraserxu/docke
 
 Once we have all setups ready, our test will be much simpler without need to "hack" a browser like environment:
 
-```JavaScript
+```javascript
 import test from 'tape'
 import React from 'react'
 import jQuery from 'jquery'
@@ -178,7 +178,7 @@ test('should have a proper testing environment', assert => {
 
 And you can put the test code in npm script and call it on your CI
 
-```JavaScript
+```javascript
 {
   // ...
   "scripts": {
