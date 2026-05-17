@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '../../layouts/Layout.astro'
+import Bio from '../../components/Bio.astro'
+import styles from '../../styles/blog-index.module.css'
+
+const posts = await getCollection('blog')
+posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+---
+
+<Layout title="All posts">
+  <Bio />
+  {posts.map((post) => (
+    <article class={styles.postItem}>
+      <header>
+        <h3>
+          <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+        </h3>
+        <small class={styles.date}>
+          {post.data.date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+        </small>
+      </header>
+      {post.data.description && (
+        <p class={styles.excerpt}>{post.data.description}</p>
+      )}
+    </article>
+  ))}
+</Layout>

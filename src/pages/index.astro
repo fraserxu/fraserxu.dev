@@ -1,0 +1,137 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Repos from '../components/Repos.astro'
+import styles from '../styles/index.module.css'
+
+interface Language {
+  name: string
+  color: string
+}
+
+interface Repo {
+  name: string
+  description: string | null
+  url: string
+  homepageUrl: string | null
+  pushedAt: string
+  languages: { nodes: Language[] }
+  stargazers: { totalCount: number }
+}
+
+let pinnedRepos: Repo[] = []
+let latestRepos: Repo[] = []
+
+const GITHUB_TOKEN = import.meta.env.GITHUB_TOKEN
+
+if (GITHUB_TOKEN) {
+  const query = `{
+    viewer {
+      pinnedItems(first: 4, types: REPOSITORY) {
+        nodes {
+          ... on Repository {
+            name
+            description
+            url
+            homepageUrl
+            pushedAt
+            stargazers { totalCount }
+            languages(first: 1, orderBy: { field: SIZE, direction: DESC }) {
+              nodes { name color }
+            }
+          }
+        }
+      }
+      repositories(
+        last: 5
+        isFork: false
+        affiliations: OWNER
+        orderBy: { field: PUSHED_AT, direction: ASC }
+      ) {
+        nodes {
+          name
+          description
+          url
+          homepageUrl
+          pushedAt
+          stargazers { totalCount }
+          languages(first: 1, orderBy: { field: SIZE, direction: DESC }) {
+            nodes { name color }
+          }
+        }
+      }
+    }
+  }`
+
+  const res = await fetch('https://api.github.com/graphql', {
+    method: 'POST',
+    headers: {
+      Authorization: `bearer ${GITHUB_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ query }),
+  })
+
+  const { data } = await res.json()
+  pinnedRepos = data.viewer.pinnedItems.nodes
+  latestRepos = [...data.viewer.repositories.nodes].reverse()
+}
+---
+
+<Layout title="Fraser Xu" isHome={true}>
+  <div class="prose">
+    <p>
+      Hi this is Fraser.
+    </p>
+    <p>
+      I'm a web developer from China, now living and working in Melbourne. I'm
+      currently working as a lead engineer for{' '}
+      <a href="https://envato.com">Envato</a>.
+    </p>
+    <p>
+      The main project I'm working on now is{' '}
+      <a href="https://elements.envato.com/">Envato Elements</a>, before that I
+      also worked on <a href="https://milkshake.app/">Milkshake</a> and{' '}
+      <a href="https://themeforest.net">Envato Market</a>.
+    </p>
+    <p>
+      This site is built with <a href="https://astro.build">Astro</a> and
+      hosted on{' '}
+      <a href="https://pages.cloudflare.com/">Cloudflare Pages</a>.
+    </p>
+  </div>
+
+  <div class={styles.section}>
+    <h2 class={styles.sectionTitle}>Find me on:</h2>
+    <ul class={styles.socialList}>
+      <li>
+        <a href="https://github.com/fraserxu" aria-label="GitHub">
+          <img src="/icons/github.svg" alt="GitHub" width="20" height="20" />
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/fraserxu" aria-label="Twitter">
+          <img src="/icons/twitter.svg" alt="Twitter" width="20" height="20" />
+        </a>
+      </li>
+      <li>
+        <a href="https://instagram.com/fraserxu" aria-label="Instagram">
+          <img src="/icons/instagram.svg" alt="Instagram" width="20" height="20" />
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  {pinnedRepos.length > 0 && (
+    <div class={styles.section}>
+      <h2 class={styles.sectionTitle}>Open source works:</h2>
+      <Repos repos={pinnedRepos} />
+    </div>
+  )}
+
+  {latestRepos.length > 0 && (
+    <div class={styles.section}>
+      <h2 class={styles.sectionTitle}>Latest hacks:</h2>
+      <Repos repos={latestRepos} />
+    </div>
+  )}
+</Layout>

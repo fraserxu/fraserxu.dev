@@ -1,0 +1,13 @@
+.bio {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  font-family: sans-serif;
+  font-size: 0.9rem;
+}
+
+.avatar {
+  border-radius: 50%;
+  flex-shrink: 0;
+}

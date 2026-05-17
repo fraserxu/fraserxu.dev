@@ -1,15 +1,15 @@
-name: Trigger Netlify Build
+name: Trigger Cloudflare Pages Build
 on:
   schedule:
-    # Run at 0815 daily
     - cron: '15 8 * * *'
+  workflow_dispatch:
 jobs:
   build:
-    name: Request Netlify Webhook
+    name: Request Cloudflare Pages Deploy Hook
     runs-on: ubuntu-latest
     steps:
-      - name: Curl request
+      - name: Trigger deploy hook
         shell: bash
         env:
-          NETLIFY_DEPLOY_HOOK: ${{ secrets.NetlifyDeployHook }}
-        run: curl -X POST -d {} $NETLIFY_DEPLOY_HOOK
+          CLOUDFLARE_DEPLOY_HOOK: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}
+        run: curl -X POST "$CLOUDFLARE_DEPLOY_HOOK"

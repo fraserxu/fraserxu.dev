@@ -1,0 +1,67 @@
+---
+import styles from '../styles/Repos.module.css'
+
+interface Language {
+  name: string
+  color: string
+}
+
+interface Repo {
+  name: string
+  description: string | null
+  url: string
+  homepageUrl: string | null
+  pushedAt: string
+  languages: { nodes: Language[] }
+  stargazers: { totalCount: number }
+}
+
+interface Props {
+  repos: Repo[]
+}
+
+const { repos } = Astro.props
+
+function timeAgo(isoDate: string): string {
+  const diffMs = Date.now() - new Date(isoDate).getTime()
+  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24))
+  if (diffDays < 1) return 'today'
+  if (diffDays < 30) return `${diffDays} day${diffDays === 1 ? '' : 's'} ago`
+  const diffMonths = Math.floor(diffDays / 30)
+  if (diffMonths < 12) return `${diffMonths} month${diffMonths === 1 ? '' : 's'} ago`
+  const diffYears = Math.floor(diffDays / 365)
+  return `${diffYears} year${diffYears === 1 ? '' : 's'} ago`
+}
+---
+
+<ul class={styles.repoList}>
+  {repos.map((repo) => {
+    const lang = repo.languages.nodes[0] ?? null
+    return (
+      <li class={styles.repoItem}>
+        <span class={styles.repoName}>
+          <a href={repo.url}>{repo.name}</a>
+        </span>
+        {repo.description && <p class={styles.repoDesc}>{repo.description}</p>}
+        <div class={styles.repoMeta}>
+          {lang && (
+            <span class={styles.repoLang}>
+              <span
+                class={styles.langDot}
+                style={`background-color: ${lang.color}`}
+              />
+              {lang.name}
+            </span>
+          )}
+          <span class={styles.repoStars}>
+            <svg viewBox="0 0 14 16" width="12" height="14" aria-hidden="true">
+              <path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z" />
+            </svg>
+            {repo.stargazers.totalCount}
+          </span>
+          <span>Updated {timeAgo(repo.pushedAt)}</span>
+        </div>
+      </li>
+    )
+  })}
+</ul>
