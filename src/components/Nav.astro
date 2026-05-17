@@ -1,0 +1,25 @@
+---
+import styles from '../styles/Nav.module.css'
+const pathname = Astro.url.pathname
+---
+
+<nav>
+  <ul class={styles.navList}>
+    <li class={styles.navItem}>
+      <a
+        href="/"
+        class={`${styles.navLink} ${pathname === '/' ? styles.active : ''}`}
+      >
+        Home
+      </a>
+    </li>
+    <li class={styles.navItem}>
+      <a
+        href="/blog"
+        class={`${styles.navLink} ${pathname.startsWith('/blog') ? styles.active : ''}`}
+      >
+        Blog
+      </a>
+    </li>
+  </ul>
+</nav>

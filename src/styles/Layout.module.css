@@ -1,0 +1,51 @@
+.container {
+  min-height: 100vh;
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.header {
+  margin-bottom: 1.5rem;
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titleLarge {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin: 0 0 0.5rem 0;
+}
+
+.titleLarge a,
+.titleSmall a {
+  color: #111;
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.titleLarge a:hover,
+.titleSmall a:hover {
+  color: #555;
+}
+
+.titleSmall {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.footer {
+  padding: 2.5rem 0 1rem;
+  font-size: 0.875rem;
+  color: #555;
+  font-family: sans-serif;
+}
+
+.footer a {
+  color: #555;
+}

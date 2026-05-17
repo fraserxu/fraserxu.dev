@@ -1,0 +1,54 @@
+.repoList {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0;
+}
+
+.repoItem {
+  padding-bottom: 1rem;
+}
+
+.repoName {
+  font-weight: 600;
+}
+
+.repoDesc {
+  margin: 0.25rem 0 0;
+  color: #444;
+  font-size: 0.9rem;
+  font-family: sans-serif;
+}
+
+.repoMeta {
+  display: flex;
+  align-items: center;
+  margin-top: 0.35rem;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: #666;
+  font-family: sans-serif;
+}
+
+.repoLang {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.langDot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.repoStars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.repoStars svg {
+  fill: #666;
+}

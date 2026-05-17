@@ -1,0 +1,64 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '../../layouts/Layout.astro'
+import Bio from '../../components/Bio.astro'
+import styles from '../../styles/blog-post.module.css'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog')
+  posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+
+  return posts.map((post, index) => ({
+    params: { slug: post.slug },
+    props: {
+      post,
+      previous: index < posts.length - 1 ? posts[index + 1] : null,
+      next: index > 0 ? posts[index - 1] : null,
+    },
+  }))
+}
+
+const { post, previous, next } = Astro.props
+const { Content } = await post.render()
+
+const formattedDate = post.data.date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+})
+---
+
+<Layout title={post.data.title} description={post.data.description}>
+  <article>
+    <header>
+      <h1 class={styles.postTitle}>{post.data.title}</h1>
+      <p class={styles.postDate}>{formattedDate}</p>
+    </header>
+    <section class="prose">
+      <Content />
+    </section>
+    <hr class={styles.divider} />
+    <footer>
+      <Bio />
+    </footer>
+  </article>
+
+  <nav class={styles.postNav} aria-label="post navigation">
+    <ul class={styles.postNavList}>
+      <li>
+        {previous && (
+          <a href={`/blog/${previous.slug}`} rel="prev">
+            &larr; {previous.data.title}
+          </a>
+        )}
+      </li>
+      <li>
+        {next && (
+          <a href={`/blog/${next.slug}`} rel="next">
+            {next.data.title} &rarr;
+          </a>
+        )}
+      </li>
+    </ul>
+  </nav>
+</Layout>
