@@ -12,7 +12,7 @@ The site worked fine. What didn't work fine was the supply chain underneath it: 
 
 I also host a couple of other things on Cloudflare. Consolidating made sense.
 
-The other reason was less rational and more curiosity: I wanted to see how far I could push Claude on the web. The session that did the migration ran in the cloud, not on my laptop. I kicked it off, reviewed diffs, asked follow-up questions, and merged PRs — all from my phone, in between other things. A site migration as a thing you do on the couch is a genuinely new shape, and I wanted to find its edges.
+The other reason was less rational and more curiosity: I wanted to see how far I could push the Claude mobile app. The session that did the migration ran on Anthropic's infrastructure, not on my laptop — I drove it entirely from the app on my phone. I kicked it off, reviewed diffs, asked follow-up questions, and merged PRs in between other things. A site migration as a thing you do on the couch is a genuinely new shape, and I wanted to find its edges.
 
 ### The one-shot commit
 
@@ -66,4 +66,4 @@ What's different now is that the git history is the draft. The agent can read ev
 
 ### Closing
 
-The whole thing — including this blog post — was drafted by Claude Code from the git history of the migration itself, running in the cloud, prompted from my phone. I wrote the prompts, picked the destination, and hit merge. That feels like the right division of labor for a personal site in 2026, and I'm pretty sure the edge of what's possible from a phone is further out than I thought yesterday.
+The whole thing — including this blog post — was drafted by Claude Code from the git history of the migration itself, driven from the Claude mobile app. I wrote the prompts, picked the destination, and hit merge. That feels like the right division of labor for a personal site in 2026, and I'm pretty sure the edge of what's possible from a phone is further out than I thought yesterday.
