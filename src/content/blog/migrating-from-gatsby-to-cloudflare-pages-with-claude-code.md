@@ -12,6 +12,8 @@ The site worked fine. What didn't work fine was the supply chain underneath it: 
 
 I also host a couple of other things on Cloudflare. Consolidating made sense.
 
+The other reason was less rational and more curiosity: I wanted to see how far I could push Claude on the web. The session that did the migration ran in the cloud, not on my laptop. I kicked it off, reviewed diffs, asked follow-up questions, and merged PRs — all from my phone, in between other things. A site migration as a thing you do on the couch is a genuinely new shape, and I wanted to find its edges.
+
 ### The one-shot commit
 
 I opened Claude Code, described the destination (Astro on Cloudflare Pages, drop Netlify CMS, keep the existing posts and URLs), and asked it to go. It came back with a single commit:
@@ -56,6 +58,12 @@ The agent is fast, but it isn't deciding anything important. I picked Cloudflare
 
 There's also the quiet judgement of when to stop. After the dependabot PR landed I almost asked it to also remove the GitHub Actions cron job that used to trigger Netlify rebuilds. I caught myself — the same job now triggers Cloudflare, and "while we're in here" is how a clean migration turns into a three-day yak shave.
 
+### On writing this at all
+
+I haven't published a blog post in years. The friction was never the typing — it was finding an hour to sit down and decide what was actually worth saying, while the work was still fresh. By the time I had the hour, the work was no longer fresh, and the post never got written.
+
+What's different now is that the git history is the draft. The agent can read every commit, every diff, every PR comment from the migration and produce a coherent first pass in a minute. My job becomes editing: cutting what isn't true to my experience, adding the bits the diff doesn't show (why I picked Cloudflare, what I almost did and stopped myself from doing), keeping the voice mine. That's a different kind of writing than I'm used to, and I'm still figuring out whether what comes out the other end is a blog post in the old sense or something else. But the threshold to publish is meaningfully lower, and "I never got around to writing it up" is no longer a good excuse.
+
 ### Closing
 
-The whole thing — including this blog post — was drafted by Claude Code from the git history of the migration itself. I wrote the prompts, picked the destination, and hit merge. That feels like the right division of labor for a personal site in 2026.
+The whole thing — including this blog post — was drafted by Claude Code from the git history of the migration itself, running in the cloud, prompted from my phone. I wrote the prompts, picked the destination, and hit merge. That feels like the right division of labor for a personal site in 2026, and I'm pretty sure the edge of what's possible from a phone is further out than I thought yesterday.
