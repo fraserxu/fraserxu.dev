@@ -30,28 +30,27 @@ const pageTitle = title === siteTitle ? title : `${title} | ${siteTitle}`
   <body>
     <div class={styles.container}>
       <header class={styles.header}>
-        {isHome ? (
-          <>
+        <div class={styles.headerInner}>
+          {isHome ? (
             <h1 class={styles.titleLarge}>
               <a href="/">{siteTitle}</a>
+              <span class={styles.seal} aria-hidden="true">XU</span>
             </h1>
-            <Nav />
-          </>
-        ) : (
-          <div class={styles.headerInner}>
-            <h3 class={styles.titleSmall}>
+          ) : (
+            <p class={styles.titleSmall}>
               <a href="/">{siteTitle}</a>
-            </h3>
-            <Nav />
-          </div>
-        )}
+              <span class={styles.seal} aria-hidden="true">XU</span>
+            </p>
+          )}
+          <Nav />
+        </div>
       </header>
       <main>
         <slot />
       </main>
       <footer class={styles.footer}>
-        &copy; {new Date().getFullYear()}, Built with{' '}
-        <a href="https://astro.build">Astro</a>
+        <span>&copy; {new Date().getFullYear()} Fraser Xu &middot; Melbourne</span>
+        <a href="https://astro.build">Built with Astro</a>
       </footer>
     </div>
   </body>

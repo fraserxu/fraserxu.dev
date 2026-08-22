@@ -4,7 +4,10 @@ export default defineConfig({
   site: 'https://fraserxu.dev',
   markdown: {
     shikiConfig: {
-      theme: 'github-light',
+      themes: {
+        light: 'github-light',
+        dark: 'github-dark',
+      },
       wrap: false,
     },
   },

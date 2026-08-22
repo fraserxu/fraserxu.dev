@@ -1,27 +1,26 @@
 .navList {
   list-style: none;
   padding: 0;
-  margin: 0.5rem 0 0;
-}
-
-.navItem {
-  display: inline;
-  padding-right: 1rem;
+  margin: 0;
+  display: flex;
+  gap: 1.25rem;
 }
 
 .navLink {
-  font-weight: 600;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #111;
-  border-bottom: 1px dotted #111;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--ink-soft);
   text-decoration: none;
-  font-family: sans-serif;
 }
 
-.navLink:hover,
+.navLink:hover {
+  color: var(--seal);
+}
+
 .active {
-  color: #555;
-  border-bottom-color: #555;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--seal);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
 }

@@ -2,9 +2,16 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 3rem;
-  font-family: sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.9375rem;
+  color: var(--ink-soft);
+}
+
+.bio p {
+  margin: 0;
+}
+
+.bio strong {
+  color: var(--ink);
 }
 
 .avatar {
