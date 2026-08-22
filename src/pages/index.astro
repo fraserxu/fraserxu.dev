@@ -42,10 +42,10 @@ if (GITHUB_TOKEN) {
         }
       }
       repositories(
-        last: 5
+        first: 5
         isFork: false
         affiliations: OWNER
-        orderBy: { field: PUSHED_AT, direction: ASC }
+        orderBy: { field: PUSHED_AT, direction: DESC }
       ) {
         nodes {
           name
@@ -73,7 +73,7 @@ if (GITHUB_TOKEN) {
 
   const { data } = await res.json()
   pinnedRepos = data.viewer.pinnedItems.nodes
-  latestRepos = [...data.viewer.repositories.nodes].reverse()
+  latestRepos = data.viewer.repositories.nodes
 }
 ---
 
@@ -100,7 +100,7 @@ if (GITHUB_TOKEN) {
     <h2 class={styles.sectionTitle}>Elsewhere</h2>
     <ul class={styles.socialList}>
       <li><a href="https://github.com/fraserxu">GitHub</a></li>
-      <li><a href="https://twitter.com/fraserxu">Twitter</a></li>
+      <li><a href="https://x.com/fraserxu">X</a></li>
       <li><a href="https://instagram.com/fraserxu">Instagram</a></li>
     </ul>
   </div>

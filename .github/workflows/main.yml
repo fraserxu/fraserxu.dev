@@ -11,5 +11,5 @@ jobs:
       - name: Trigger deploy hook
         shell: bash
         env:
-          CLOUDFLARE_DEPLOY_HOOK: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}
-        run: curl -X POST "$CLOUDFLARE_DEPLOY_HOOK"
+          CF_DEPLOY_HOOK: ${{ secrets.CF_DEPLOY_HOOK }}
+        run: curl -X POST "$CF_DEPLOY_HOOK"
