@@ -5,20 +5,20 @@ const pathname = Astro.url.pathname
 
 <nav>
   <ul class={styles.navList}>
-    <li class={styles.navItem}>
+    <li>
       <a
         href="/"
         class={`${styles.navLink} ${pathname === '/' ? styles.active : ''}`}
       >
-        Home
+        home
       </a>
     </li>
-    <li class={styles.navItem}>
+    <li>
       <a
         href="/blog"
         class={`${styles.navLink} ${pathname.startsWith('/blog') ? styles.active : ''}`}
       >
-        Blog
+        blog
       </a>
     </li>
   </ul>

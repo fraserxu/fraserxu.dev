@@ -97,36 +97,24 @@ if (GITHUB_TOKEN) {
   </div>
 
   <div class={styles.section}>
-    <h2 class={styles.sectionTitle}>Find me on:</h2>
+    <h2 class={styles.sectionTitle}>Elsewhere</h2>
     <ul class={styles.socialList}>
-      <li>
-        <a href="https://github.com/fraserxu" aria-label="GitHub">
-          <img src="/icons/github.svg" alt="GitHub" width="20" height="20" />
-        </a>
-      </li>
-      <li>
-        <a href="https://twitter.com/fraserxu" aria-label="Twitter">
-          <img src="/icons/twitter.svg" alt="Twitter" width="20" height="20" />
-        </a>
-      </li>
-      <li>
-        <a href="https://instagram.com/fraserxu" aria-label="Instagram">
-          <img src="/icons/instagram.svg" alt="Instagram" width="20" height="20" />
-        </a>
-      </li>
+      <li><a href="https://github.com/fraserxu">GitHub</a></li>
+      <li><a href="https://twitter.com/fraserxu">Twitter</a></li>
+      <li><a href="https://instagram.com/fraserxu">Instagram</a></li>
     </ul>
   </div>
 
   {pinnedRepos.length > 0 && (
     <div class={styles.section}>
-      <h2 class={styles.sectionTitle}>Open source works:</h2>
+      <h2 class={styles.sectionTitle}>Open source</h2>
       <Repos repos={pinnedRepos} />
     </div>
   )}
 
   {latestRepos.length > 0 && (
     <div class={styles.section}>
-      <h2 class={styles.sectionTitle}>Latest hacks:</h2>
+      <h2 class={styles.sectionTitle}>Recently pushed</h2>
       <Repos repos={latestRepos} />
     </div>
   )}
